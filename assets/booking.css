@@ -1,0 +1,165 @@
+/* ============================================================
+   Movie Ticket Booking — Frontend Styles
+   ============================================================ */
+
+/* ── Movie grid ── */
+.mtb-movie-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    background: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mtb-movie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+.mtb-movie-poster {
+    width: 100%; aspect-ratio: 2/3;
+    background-size: cover; background-position: center;
+}
+.mtb-movie-poster--placeholder {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+.mtb-movie-info { padding: 16px; }
+.mtb-movie-title { font-size: 17px; font-weight: 700; margin: 0 0 8px; line-height: 1.3; }
+.mtb-movie-meta { font-size: 13px; color: #64748b; display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.mtb-badge {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    background: #0f172a; color: #fff; padding: 3px 8px; border-radius: 4px;
+    margin-bottom: 8px; letter-spacing: 0.04em;
+}
+.mtb-no-shows { font-size: 13px; color: #94a3b8; }
+
+/* ── Buttons ── */
+.mtb-btn {
+    display: inline-block; background: #1D9E75; color: #fff !important;
+    padding: 10px 20px; border-radius: 8px; text-decoration: none;
+    font-weight: 600; font-size: 14px; border: none; cursor: pointer;
+    transition: background 0.18s ease;
+}
+.mtb-btn:hover { background: #166d52; }
+.mtb-back-btn {
+    background: none; border: 1px solid #e2e8f0; padding: 8px 14px;
+    border-radius: 8px; cursor: pointer; font-size: 13px; color: #475569;
+}
+.mtb-back-btn:hover { background: #f8fafc; }
+
+/* ── Steps ── */
+.mtb-steps {
+    display: flex; gap: 0; margin-bottom: 28px;
+    border-bottom: 2px solid #e2e8f0; padding-bottom: 0;
+}
+.mtb-step {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 20px; font-size: 13px; color: #94a3b8;
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+}
+.mtb-step--active { color: #1D9E75; border-bottom-color: #1D9E75; }
+.mtb-step--done   { color: #0f172a; }
+.mtb-step__num {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #e2e8f0; color: #64748b;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+}
+.mtb-step--active .mtb-step__num { background: #1D9E75; color: #fff; }
+
+/* ── Movie banner ── */
+.mtb-movie-banner {
+    width: 100%; height: 200px; border-radius: 12px;
+    background-size: cover; background-position: center top;
+    margin-bottom: 20px;
+}
+
+/* ── Showtime slots ── */
+.mtb-showtime-day { margin-bottom: 20px; }
+.mtb-date-label { font-size: 14px; font-weight: 600; color: #475569; margin: 0 0 10px; }
+.mtb-showtime-slots { display: flex; flex-wrap: wrap; gap: 10px; }
+.mtb-showtime-slot {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 12px 16px; border: 2px solid #e2e8f0; border-radius: 10px;
+    background: #fff; cursor: pointer; min-width: 110px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+.mtb-showtime-slot:hover { border-color: #1D9E75; background: #f0faf5; }
+.mtb-showtime-slot.mtb-selected { border-color: #1D9E75; background: #f0faf5; }
+.mtb-slot__time { font-size: 16px; font-weight: 700; color: #0f172a; }
+.mtb-slot__meta { font-size: 11px; color: #94a3b8; margin: 3px 0; }
+.mtb-slot__price { font-size: 13px; font-weight: 600; color: #1D9E75; }
+
+/* ── Seat map ── */
+.mtb-screen-label {
+    background: linear-gradient(to bottom, #94a3b8, #e2e8f0);
+    color: #475569; text-align: center; padding: 8px; border-radius: 6px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+.mtb-seat-map {
+    display: grid;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.mtb-seat-row { display: flex; align-items: center; gap: 6px; }
+.mtb-seat-row-label {
+    width: 20px; text-align: right; font-size: 12px;
+    font-weight: 600; color: #94a3b8;
+}
+.mtb-seat {
+    width: 34px; height: 28px; border-radius: 6px 6px 3px 3px;
+    border: none; cursor: pointer; font-size: 10px; font-weight: 600;
+    transition: transform 0.12s ease, background 0.12s ease;
+    position: relative;
+}
+.mtb-seat::after {
+    content: ''; position: absolute; bottom: -4px; left: 4px; right: 4px;
+    height: 4px; background: inherit; border-radius: 0 0 3px 3px; opacity: 0.6;
+}
+.mtb-seat--available { background: #e2e8f0; color: #64748b; }
+.mtb-seat--available:hover { background: #1D9E75; color: #fff; transform: scale(1.1); }
+.mtb-seat--selected  { background: #1D9E75; color: #fff; }
+.mtb-seat--booked    { background: #f1f5f9; color: #cbd5e1; cursor: not-allowed; }
+
+/* ── Legend ── */
+.mtb-seat-legend {
+    display: flex; justify-content: center; gap: 20px;
+    font-size: 12px; color: #64748b; margin-bottom: 20px;
+}
+.mtb-legend-item { display: flex; align-items: center; gap: 6px; }
+.mtb-legend-item .mtb-seat { width: 20px; height: 16px; pointer-events: none; }
+
+/* ── Selection summary ── */
+.mtb-selection-summary {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 20px; background: #f8fafc; border-radius: 10px;
+    border: 1px solid #e2e8f0; font-size: 14px;
+}
+
+/* ── Seat header ── */
+.mtb-seat-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* ── Booking wrap ── */
+.mtb-booking-wrap { max-width: 800px; margin: 0 auto; }
+.mtb-panel__title { font-size: 22px; font-weight: 700; margin: 0 0 20px; }
+.mtb-empty { color: #94a3b8; text-align: center; padding: 40px; }
+.mtb-loading { text-align: center; padding: 40px; color: #94a3b8; }
+
+/* ── Spinner ── */
+.mtb-spinner {
+    width: 40px; height: 40px; margin: 0 auto 16px;
+    border: 3px solid #e2e8f0; border-top-color: #1D9E75;
+    border-radius: 50%; animation: mtb-spin 0.8s linear infinite;
+}
+@keyframes mtb-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 600px) {
+    .mtb-steps { gap: 0; }
+    .mtb-step  { padding: 10px 10px; font-size: 11px; }
+    .mtb-showtime-slot { min-width: 90px; padding: 10px 12px; }
+    .mtb-seat  { width: 28px; height: 24px; }
+    .mtb-selection-summary { flex-direction: column; gap: 12px; }
+}
