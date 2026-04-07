@@ -21,7 +21,8 @@ class MTB_WooCommerce {
 
         // Create booking when order is paid
         add_action( 'woocommerce_order_status_completed',  [ self::class, 'on_order_complete' ] );
-        add_action( 'woocommerce_order_status_processing', [ self::class, 'on_order_complete' ] ); // for card payments
+        add_action( 'woocommerce_order_status_processing', [ self::class, 'on_order_complete' ] ); // card payments
+        add_action( 'woocommerce_order_status_on-hold',    [ self::class, 'on_order_complete' ] ); // Cash on Delivery
 
         // Prevent duplicate booking
         add_action( 'woocommerce_order_status_cancelled', [ self::class, 'on_order_cancelled' ] );
